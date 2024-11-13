@@ -9,12 +9,12 @@ namespace Password_LoginTests
     {
         //Ввод корректных данных
         [TestMethod]
-        public void LoginAndPassword_DirectorandAdmin12SpecialSimbol_returnedUspeh()
+        public void LoginAndPassword_DirectorandAdmin123TwoSpecialSimbol_returnedUspeh()
         {
 
             // исходные данные
             string login = "Director";
-            string password = "Admin12!";
+            string password = "Admin123!+";
             string expected = "Успех";
 
             // получения значения с помощью тестируемого метода
@@ -190,7 +190,7 @@ namespace Password_LoginTests
         {
             // исходные данные
             string login = "Director";
-            string password = "Awert1#! ";
+            string password = "Awert1! ";
             string expected = "Не верный пароль!";
 
             // получения значения с помощью тестируемого метода
