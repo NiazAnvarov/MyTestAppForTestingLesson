@@ -103,6 +103,24 @@ namespace Password_LoginTests
 
         }
         [TestMethod]
+        public void LoginAndPassword_Directorand12345678_returnedIncorrectPassword()
+        {
+
+            // исходные данные
+            string login = "Director";
+            string password = "12345678";
+            string expected = "Не верный пароль!";
+
+            // получения значения с помощью тестируемого метода
+
+            PasswordCheck check = new PasswordCheck();
+            string actual = check.ValidatePassword(password, login);
+
+            // сравнение ожидаемого результата с полученным
+
+            Assert.AreEqual(expected, actual);
+
+        }
         public void LoginAndPassword_Directorand123_returnedIncorrectPassword()
         {
 
