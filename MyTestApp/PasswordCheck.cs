@@ -20,7 +20,7 @@ namespace MyTestApp
                 error.Append("Не верный пароль!");
             
 
-            if (string.IsNullOrWhiteSpace(Login))
+            if (string.IsNullOrWhiteSpace(Login)/* || Password.IndexOf(" ")>= 0*/)
             {
                 error.Append(" Не верный логин!");
             }

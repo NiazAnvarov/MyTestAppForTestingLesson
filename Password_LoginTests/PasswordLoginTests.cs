@@ -84,6 +84,25 @@ namespace Password_LoginTests
 
         }
         [TestMethod]
+        public void LoginAndPassword_SpaceLoginandSpacePassword_returnedIncorrectPasswordAndIncorrectLogin()
+        {
+
+            // исходные данные
+            string login = " ";
+            string password = " ";
+            string expected = "Не верный пароль! Не верный логин!";
+
+            // получения значения с помощью тестируемого метода
+
+            PasswordCheck check = new PasswordCheck();
+            string actual = check.ValidatePassword(password, login);
+
+            // сравнение ожидаемого результата с полученным
+
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
         public void LoginAndPassword_DirectorandAm1SpecialSimbol_returnedIncorrectPasswordAndIncorrectLogin()
         {
 
@@ -121,12 +140,13 @@ namespace Password_LoginTests
             Assert.AreEqual(expected, actual);
 
         }
-        public void LoginAndPassword_Directorand123_returnedIncorrectPassword()
+        [TestMethod]
+        public void LoginAndPassword_Directorand12345Adf_returnedIncorrectPassword()
         {
 
             // исходные данные
             string login = "Director";
-            string password = "12345678";
+            string password = "12345Adf";
             string expected = "Не верный пароль!";
 
             // получения значения с помощью тестируемого метода
@@ -139,7 +159,44 @@ namespace Password_LoginTests
             Assert.AreEqual(expected, actual);
 
         }
+        [TestMethod]
+        public void LoginAndPassword_Directorand12345ThreeSpecialSimbols_returnedIncorrectPassword()
+        {
 
+            // исходные данные
+            string login = "Director";
+            string password = "12345!@#";
+            string expected = "Не верный пароль!";
+
+            // получения значения с помощью тестируемого метода
+
+            PasswordCheck check = new PasswordCheck();
+            string actual = check.ValidatePassword(password, login);
+
+            // сравнение ожидаемого результата с полученным
+
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void LoginAndPassword_DirectorandAdfertTwoSpecialSimbols_returnedIncorrectPassword()
+        {
+
+            // исходные данные
+            string login = "Director";
+            string password = "Adfert!@";
+            string expected = "Не верный пароль!";
+
+            // получения значения с помощью тестируемого метода
+
+            PasswordCheck check = new PasswordCheck();
+            string actual = check.ValidatePassword(password, login);
+
+            // сравнение ожидаемого результата с полученным
+
+            Assert.AreEqual(expected, actual);
+
+        }
 
 
 
