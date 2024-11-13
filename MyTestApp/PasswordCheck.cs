@@ -16,11 +16,11 @@ namespace MyTestApp
             
             StringBuilder error = new StringBuilder();
 
-            if (string.IsNullOrWhiteSpace(Password) ||Password.Length < 8 || Password.Length > 20 || !Password.Any(char.IsLower) || !Password.Any(char.IsUpper) || !Password.Any(char.IsDigit) || Password.Intersect("!@#$%^&/;:_`~='*{}[]()-+").Count() == 0)
+            if (string.IsNullOrWhiteSpace(Password) || Password.IndexOf(' ') >= 0 || Password.Length < 8 || Password.Length > 20 || !Password.Any(char.IsLower) || !Password.Any(char.IsUpper) || !Password.Any(char.IsDigit) || Password.Intersect("!@#$%^&/;:_`~='*{}[]()-+").Count() == 0)
                 error.Append("Не верный пароль!");
             
 
-            if (string.IsNullOrWhiteSpace(Login)/* || Password.IndexOf(" ")>= 0*/)
+            if (string.IsNullOrWhiteSpace(Login) || Login.IndexOf(' ') >= 0 || !Char.IsLetter(Login[0]) )
             {
                 error.Append(" Не верный логин!");
             }
